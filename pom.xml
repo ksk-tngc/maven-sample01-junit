@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <!-- 決り文句 -->
+  <modelVersion>4.0.0</modelVersion> <!-- POM (Project Object Model) のバージョン。4.0.0 固定でOK -->
+
+  <!-- プロジェクトのID設定 -->
+  <groupId>com.mycompany.app</groupId> <!-- プロジェクを所有するグループのID。パッケージ名と同じルールでOK (組織のドメイン名を逆にした文字列) -->
+  <artifactId>my-java-maven-sample</artifactId> <!-- プロジェクトのID／プロジェクト名／成果物名 -->
+  <version>0.0.1-SNAPSHOT</version> <!-- プロジェクトのバージョン -->
+
+  <properties>
+    <!-- Javaのバージョン指定
+      javac の「-source」「-target」オプションに相当
+      * -source: ソースコードをコンパイルする JDK のバージョン
+      * -target: 実行時の JVM (JRE) のバージョン
+    -->
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+  </properties>
+
+  <!-- ビルドプラグイン
+    ビルド時に使用するプラグイン (＝Mavenの機能)
+  -->
+  <build>
+    <plugins>
+      <plugin>
+        <!-- `mvn test` に対応するプラグイン（＝フェーズ／ゴール）
+          JUnit5 を実行するには「maven-surefire-plugin」の ver 2.22.0 以降が必要。
+          デフォルトの「maven-surefire-plugin」はバージョンが古く JUnit5 が正常に実行されないため、
+          明示的にインストールする必要がある。
+         -->
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M5</version>
+      </plugin>
+    </plugins>
+  </build>
+
+  <!-- 依存関係 (使用ライブラリ) -->
+  <dependencies>
+    <!-- JUnit5
+      追加するライブラリは「junit-jupiter-api」のみでOK。
+    -->
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>5.8.0-M1</version>
+        <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+</project>
