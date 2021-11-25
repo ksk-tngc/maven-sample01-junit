@@ -1,5 +1,3 @@
-my-java-maven-sample
-
 ## 概要
 
 Maven のサンプルプロジェクトです。  
